@@ -14,7 +14,7 @@ var x = () => {
 };
 
 // ...call fn
-x();
+// x();
 /*
 ==========
 The above is the same as the following
