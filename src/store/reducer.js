@@ -15,7 +15,8 @@ const reducer = (state = initialState, action) => {
     case ADD_USER:
       return {
         ...state,
-        user: action.user
+        user: action.user,
+        gameOver: true
       };
     default:
       return state;

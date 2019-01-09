@@ -9,9 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jest": "^23.6.0",
     "prompt": "^1.0.0",
     "promptly": "^3.0.3",
     "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
   }
 }
