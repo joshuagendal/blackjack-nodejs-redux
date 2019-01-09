@@ -3,17 +3,15 @@ const { addUser } = require("../store/actions");
 const { store } = require("../store/index");
 const { dispatch } = store;
 
-// const getName = () => {
-//   return new Promise((resolve, reject) => {
-//     promptly
-//       .prompt("What is your name?: ")
-//       .then(result => {
-//         dispatch(addUser(result));
-//         resolve(result);
-//       })
-//       .catch(err => reject(err));
-//   });
-// };
+const getName = () => {
+  return promptly
+    .prompt("What is your name?: ")
+    .then(result => {
+      dispatch(addUser(result));
+      resolve(result);
+    })
+    .catch(err => reject(err));
+};
 
 module.exports = {
   getName
