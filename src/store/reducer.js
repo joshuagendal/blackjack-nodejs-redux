@@ -10,7 +10,7 @@ const reducer = (state = initialState, action) => {
     case END_GAME:
       return {
         ...state,
-        gameOver: true
+        endGame: action.payload.gameOver
       };
     case ADD_USER:
       return {
