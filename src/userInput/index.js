@@ -1,16 +1,18 @@
 const promptly = require("promptly");
 const { addUser } = require("../store/actions");
 const { store } = require("../store/index");
-const { dispatch } = store;
 
 const getName = () => {
   return promptly
     .prompt("What is your name?: ")
     .then(result => {
-      dispatch(addUser(result));
-      resolve(result);
+      store.dispatch(addUser(result));
+      console.log("getname result: ", result);
+      return result;
     })
-    .catch(err => reject(err));
+    .catch(err => {
+      console.log("ERROR IN GETNAME CATCH BLOCK: ", err);
+    });
 };
 
 module.exports = {

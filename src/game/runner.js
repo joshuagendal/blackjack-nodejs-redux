@@ -1,11 +1,14 @@
 const { getName } = require("../userInput/index");
 
 const beginFauxGame = () => {
-  return new Promise((resolve, reject) => {
-    getName()
-      .then(result => resolve(result))
-      .catch(err => reject(err));
-  });
+  return getName()
+    .then(result => {
+      console.log("begin game: ", result);
+      return result;
+    })
+    .catch(err => {
+      return err;
+    });
 };
 
 module.exports = { beginFauxGame };
