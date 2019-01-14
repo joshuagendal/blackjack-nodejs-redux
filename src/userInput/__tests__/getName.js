@@ -1,8 +1,3 @@
-// const { prompt } = require("../__mocks__/prompt");
-
-// jest.mock(prompt);
-// const promptly = jest.genMockFromModule("promptly");
-
 jest.mock("promptly");
 const promptly = require("promptly");
 const { getName } = require("../index");

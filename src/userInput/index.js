@@ -1,7 +1,6 @@
 const promptly = require("promptly");
 const { addUser } = require("../store/actions");
 const { store } = require("../store/index");
-// const { prompt } = promptly;
 
 const getName = () => {
   return promptly

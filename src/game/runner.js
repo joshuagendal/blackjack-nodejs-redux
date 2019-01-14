@@ -1,12 +1,11 @@
 const { getName } = require("../userInput/index");
+const { addUser } = require("../store/actions");
 const { store } = require("../store/index");
 
 const beginFauxGame = () => {
   return getName()
     .then(result => {
-      console.log("begin game: ", result);
-      store.dispatch(addUser(result));
-      return result;
+      return store.dispatch(addUser(result));
     })
     .catch(err => {
       return err;
