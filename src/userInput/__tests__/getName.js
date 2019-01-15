@@ -16,10 +16,11 @@ describe("#getName", () => {
     });
   });
   it("implements promptly.prompt correctly", () => {
-    expect.assertions(2);
+    expect.assertions(3);
     return getName().then(name => {
       expect(promptly.prompt).toHaveBeenCalledTimes(1);
       expect(promptly.prompt).toHaveBeenCalledWith("What is your name?: ");
+      expect(name).toEqual("josh");
     });
   });
 });

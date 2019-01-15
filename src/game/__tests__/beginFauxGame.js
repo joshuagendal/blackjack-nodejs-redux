@@ -11,17 +11,19 @@ jest.mock("../../userInput/index", () => {
 
 describe("#beginFauxGame", () => {
   it("calls store.dispatch once w/ correct arg", () => {
-    jest.spyOn(store, "dispatch");
+    const dispatchSpy = jest.spyOn(store, "dispatch");
+
     expect.assertions(2);
     return beginFauxGame().then(result => {
-      expect(store.dispatch).toHaveBeenCalledTimes(1);
-      expect(store.dispatch).toHaveBeenCalledWith({
+      expect(dispatchSpy).toHaveBeenCalledTimes(1);
+      expect(dispatchSpy).toHaveBeenCalledWith({
         type: ADD_USER,
         payload: {
           user: "josh",
           gameOver: true
         }
       });
+      dispatchSpy.mockRestore();
     });
   });
 });
