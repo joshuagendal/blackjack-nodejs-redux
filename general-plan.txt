@@ -1,0 +1,10 @@
+This is where I will scope out the general plan for a game of blackjack.
+
+Development Plan
+1. Start the game
+- create a Game class that starts the game by asking the user for x amount of players, and dealing 
+    x amount of blackjack hands
+- create a Player class (will have x players)
+- use promptly module to get above information from user via terminal
+- create appropriate redux actions and reducers to hold players' hands
+2. Play the game 
