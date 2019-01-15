@@ -13,6 +13,8 @@ I am writing this blackjack app for two reasons:
 
 2. To explore the javascript programming language without worrying about responses from remote data sources.
 
+\*\*NOTE: I am using promises rather than async/await to more directly work with the promise API. I undderstand that async/await makes code cleaner, but a fantastic foundation of how promises work leads to proper use of async/await.
+
 TOOLS USED
 redux for app state management.
 promptly to communicate with the user of the terminal and accept user's input

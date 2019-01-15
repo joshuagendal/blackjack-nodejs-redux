@@ -1,3 +1,9 @@
-const { beginFauxGame } = require("./src/game/runner");
+const Game = require("./src/game/Game");
 
-beginFauxGame();
+const playBlackjack = new Game();
+playBlackjack
+  .initGame()
+  .then(res => {
+    return res;
+  })
+  .catch(err => console.log(err));
