@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "prompt": "^1.0.0",
     "promptly": "^3.0.3",
     "redux": "^4.0.1"
   },
