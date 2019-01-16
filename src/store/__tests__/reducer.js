@@ -1,12 +1,12 @@
 const { reducer } = require("../reducer");
-const { END_GAME, ADD_USER } = require("../constants");
+const { END_GAME, SET_N_PLAYERS } = require("../constants");
 
 const initialState = {
   gameOver: false,
-  user: null
+  nPlayers: null
 };
 
-describe("example game reducer", () => {
+describe("game reducer", () => {
   describe("when fed an unidentified action as second arg", () => {
     it("should return initial state", () => {
       expect(reducer((state = initialState), {})).toEqual(initialState);
@@ -18,19 +18,19 @@ describe("example game reducer", () => {
         reducer((state = initialState), {
           type: END_GAME
         })
-      ).toEqual({ gameOver: true, user: null });
+      ).toEqual({ gameOver: true, nPlayers: null });
     });
   });
-  describe("when fed ADD_USER as action type", () => {
+  describe("when fed SET_N_PLAYERS action type", () => {
     it("should return the correct modified state", () => {
       expect(
         reducer((state = initialState), {
-          type: ADD_USER,
+          type: SET_N_PLAYERS,
           payload: {
-            user: "joe schmo"
+            nPlayers: 4
           }
         })
-      ).toEqual({ user: "joe schmo", gameOver: true });
+      ).toEqual({ gameOver: false, nPlayers: 4 });
     });
   });
 });

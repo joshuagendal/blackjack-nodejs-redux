@@ -1,7 +1,7 @@
 const END_GAME = "END_GAME";
-const ADD_USER = "ADD_USER";
+const SET_N_PLAYERS = "SET_N_PLAYERS";
 
 module.exports = {
   END_GAME,
-  ADD_USER
+  SET_N_PLAYERS
 };

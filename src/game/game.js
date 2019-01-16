@@ -1,5 +1,7 @@
 const print = require("../userCommunication/print/print");
 const { getNPlayers } = require("../userCommunication/promptUser/promptUser");
+const { store } = require("../store/index");
+const { setNPlayers } = require("../store/actions");
 
 /*
 The class that will run the game
@@ -13,14 +15,10 @@ class Game {
     print("Hello and welcome to a game of blackjack! \n\n");
     return getNPlayers()
       .then(n => {
-        // this.nPlayers = n;
-        return (this.nPlayers = n);
+        this.nPlayers = n;
+        return store.dispatch(setNPlayers(n));
       })
       .catch(err => console.log(err));
-
-    // use an outsourced promptly module function to ask user how many players,
-    // assign to nPlayers contructor variable
-    // Add redux
   }
 }
 

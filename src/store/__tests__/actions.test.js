@@ -1,5 +1,5 @@
 const actions = require("../actions");
-const { END_GAME, ADD_USER } = require("../constants");
+const { END_GAME, SET_N_PLAYERS } = require("../constants");
 
 describe("redux actions", () => {
   describe("#endGame", () => {
@@ -14,16 +14,14 @@ describe("redux actions", () => {
     });
   });
   describe("#addUser", () => {
-    it("returns action to add User and end game ", () => {
-      const user = "joe shmo";
+    it("returns action to set n players", () => {
       const expectedAction = {
-        type: ADD_USER,
+        type: SET_N_PLAYERS,
         payload: {
-          user,
-          gameOver: true
+          nPlayers: 4
         }
       };
-      expect(actions.addUser(user)).toEqual(expectedAction);
+      expect(actions.setNPlayers(4)).toEqual(expectedAction);
     });
   });
 });

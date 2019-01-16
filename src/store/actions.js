@@ -1,4 +1,4 @@
-const { END_GAME, ADD_USER } = require("./constants");
+const { END_GAME, SET_N_PLAYERS } = require("./constants");
 
 const endGame = () => ({
   type: END_GAME,
@@ -7,15 +7,14 @@ const endGame = () => ({
   }
 });
 
-const addUser = user => ({
-  type: ADD_USER,
+const setNPlayers = n => ({
+  type: SET_N_PLAYERS,
   payload: {
-    user,
-    gameOver: true
+    nPlayers: n
   }
 });
 
 module.exports = {
   endGame,
-  addUser
+  setNPlayers
 };

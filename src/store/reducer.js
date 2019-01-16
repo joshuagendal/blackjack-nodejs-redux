@@ -1,8 +1,8 @@
-const { END_GAME, ADD_USER } = require("./constants");
+const { END_GAME, SET_N_PLAYERS } = require("./constants");
 
 const initialState = {
   gameOver: false,
-  user: null
+  nPlayers: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,11 +12,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         gameOver: true
       };
-    case ADD_USER:
+    case SET_N_PLAYERS:
       return {
         ...state,
-        user: action.payload.user,
-        gameOver: true
+        nPlayers: action.payload.nPlayers
       };
     default:
       return state;
