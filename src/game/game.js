@@ -1,4 +1,4 @@
-const print = require("../userCommunication/print/print");
+const { print } = require("../userCommunication/print/print");
 const { getNPlayers } = require("../userCommunication/promptUser/promptUser");
 const { store } = require("../store/index");
 const { setNPlayers } = require("../store/actions");
@@ -11,6 +11,9 @@ class Game {
     this.nPlayers = nPlayers;
   }
 
+  /*
+  A function to begin the game. 
+  */
   initGame() {
     print("Hello and welcome to a game of blackjack! \n\n");
     return getNPlayers()

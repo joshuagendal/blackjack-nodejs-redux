@@ -3,4 +3,6 @@ const print = message => {
   return;
 };
 
-module.exports = print;
+module.exports = {
+  print
+};

@@ -8,3 +8,4 @@ Development Plan
 - use promptly module to get above information from user via terminal
 - create appropriate redux actions and reducers to hold players' hands
 2. Play the game 
+3. End the game
