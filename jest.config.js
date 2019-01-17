@@ -1,3 +1,4 @@
 module.exports = {
-  testEnvironment: "jest-environment-node"
+  testEnvironment: "jest-environment-node",
+  setupTestFrameworkScriptFile: "jest-extended"
 };
