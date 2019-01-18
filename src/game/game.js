@@ -5,7 +5,7 @@ const { setNPlayers } = require("../store/actions");
 const { getBlackjackHands } = require("../utils/hands");
 
 /*
-The class that will run the game
+The class that will run the game via functions to start game, deal, remove busted hands from game, etc...
 */
 class Game {
   constructor(nPlayers) {
@@ -20,7 +20,6 @@ class Game {
     return getNPlayers()
       .then(n => {
         this.nPlayers = n;
-        const hands = getBlackjackHands(n);
         return store.dispatch(setNPlayers(n));
       })
       .catch(err => console.log(err));
