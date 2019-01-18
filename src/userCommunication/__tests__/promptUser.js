@@ -11,7 +11,7 @@ describe("#getNPlayers", () => {
   });
   it("returns the correct num of players received from user", () => {
     expect.assertions(1);
-    return getNPlayers().then(n => expect(n).toEqual(4));
+    return getNPlayers().then(n => expect(n).toBe(4));
   });
   it("calls promptly.prompt exactly once w/ correct arg", () => {
     expect.assertions(2);

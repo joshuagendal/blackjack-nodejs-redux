@@ -39,10 +39,8 @@ describe("The Game class", () => {
           "Hello and welcome to a game of blackjack! \n\n"
         );
       });
-
-      // promptUser.getNPlayers.mockReset();
     });
-    it("call getNPlayers() once", () => {
+    it("calls getNPlayers() once", () => {
       let g = new Game();
       expect.assertions(1);
 

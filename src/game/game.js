@@ -2,6 +2,7 @@ const { print } = require("../userCommunication/print/print");
 const { getNPlayers } = require("../userCommunication/promptUser/promptUser");
 const { store } = require("../store/index");
 const { setNPlayers } = require("../store/actions");
+const { getBlackjackHands } = require("../utils/hands");
 
 /*
 The class that will run the game
@@ -19,6 +20,7 @@ class Game {
     return getNPlayers()
       .then(n => {
         this.nPlayers = n;
+        const hands = getBlackjackHands(n);
         return store.dispatch(setNPlayers(n));
       })
       .catch(err => console.log(err));
