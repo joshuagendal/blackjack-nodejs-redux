@@ -64,12 +64,11 @@ describe("The Game class", () => {
         });
       });
     });
-    it("sets the Game class constructor variable nPlayers to the result of promptUsers.getNPlayers", () => {
+    it("sets the Game class constructor variable nPlayers to 4", () => {
       let g = new Game();
-      expect.assertions(2);
+      expect.assertions(1);
       return g.initGame().then(result => {
-        expect(g.nPlayers).toEqual(result.payload.nPlayers);
-        expect(g.nPlayers).toEqual(4);
+        expect(g.nPlayers).toBe(4);
       });
     });
     it("invokes fn calls in proper order", () => {
