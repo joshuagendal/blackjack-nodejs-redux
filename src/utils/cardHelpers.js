@@ -21,7 +21,8 @@ manipulateHandsForStateTree = hands => {
     numericalCount = getInitialHandNumericalVal(hand);
     newHands.push({
       cards: hand,
-      numericalCount
+      numericalCount,
+      chips: 100
     });
   });
   return newHands;
@@ -29,7 +30,6 @@ manipulateHandsForStateTree = hands => {
 
 getInitialHandNumericalVal = cards => {
   let cardValArr = [];
-  console.log("CARDS: ", cards);
   cards.forEach(card => {
     if (typeof card === "number") {
       cardValArr.push(card);
@@ -47,4 +47,8 @@ getInitialHandNumericalVal = cards => {
   return cardValArr[0] + cardValArr[1];
 };
 
-module.exports = { getInitialHand, manipulateHandsForStateTree };
+module.exports = {
+  getInitialHand,
+  manipulateHandsForStateTree,
+  getInitialHandNumericalVal
+};
