@@ -1,8 +1,8 @@
 const { print } = require("../userCommunication/print/print");
 const { getNPlayers } = require("../userCommunication/promptUser/promptUser");
 const { store } = require("../store/index");
-const { setNPlayers } = require("../store/actions");
-const { getInitialHand } = require("../utils/genCards");
+const { setNPlayers, setHands } = require("../store/actions");
+const { getInitialHand } = require("../utils/cardHelpers");
 
 /*
 The class that will run the game via functions to start game, deal, remove busted hands from game, etc...
@@ -28,12 +28,16 @@ class Game {
 
   dealPlayers(n) {
     let i;
+    let hands = [];
     for (i = 0; i < n; i++) {
       const initialHand = getInitialHand();
+      hands.push(initialHand);
       print(
         `Player ${i + 1}'s cards: \n\n${initialHand[0]}  ${initialHand[1]}`
       );
     }
+
+    return store.dispatch(setHands(hands));
   }
 }
 

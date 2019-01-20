@@ -1,4 +1,5 @@
-const { END_GAME, SET_N_PLAYERS } = require("./constants");
+const { END_GAME, SET_N_PLAYERS, SET_HANDS } = require("./constants");
+const { manipulateHandsForStateTree } = require("../utils/cardHelpers");
 
 const endGame = () => ({
   type: END_GAME,
@@ -14,7 +15,18 @@ const setNPlayers = n => ({
   }
 });
 
+const setHands = hands => {
+  const handsRedux = manipulateHandsForStateTree(hands);
+  return {
+    type: SET_HANDS,
+    payload: {
+      hands: handsRedux
+    }
+  };
+};
+
 module.exports = {
   endGame,
-  setNPlayers
+  setNPlayers,
+  setHands
 };
