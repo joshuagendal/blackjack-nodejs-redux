@@ -3,7 +3,8 @@ const { END_GAME, SET_N_PLAYERS } = require("../constants");
 
 const initialState = {
   gameOver: false,
-  nPlayers: null
+  nPlayers: null,
+  players: null
 };
 
 describe("game reducer", () => {
@@ -18,19 +19,26 @@ describe("game reducer", () => {
         reducer((state = initialState), {
           type: END_GAME
         })
-      ).toEqual({ gameOver: true, nPlayers: null });
+      ).toEqual({ gameOver: true, nPlayers: null, players: null });
     });
   });
   describe("when fed SET_N_PLAYERS action type", () => {
     it("should return the correct modified state", () => {
+      const exPlayersArray = [
+        { chips: 100 },
+        { chips: 100 },
+        { chips: 100 },
+        { chips: 100 }
+      ];
       expect(
         reducer((state = initialState), {
           type: SET_N_PLAYERS,
           payload: {
-            nPlayers: 4
+            nPlayers: 4,
+            players: exPlayersArray
           }
         })
-      ).toEqual({ gameOver: false, nPlayers: 4 });
+      ).toEqual({ gameOver: false, nPlayers: 4, players: exPlayersArray });
     });
   });
 });

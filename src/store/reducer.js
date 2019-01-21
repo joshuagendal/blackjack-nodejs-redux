@@ -16,7 +16,8 @@ const reducer = (state = initialState, action) => {
     case SET_N_PLAYERS:
       return {
         ...state,
-        nPlayers: action.payload.nPlayers
+        nPlayers: action.payload.nPlayers,
+        players: action.payload.players
       };
     case SET_HANDS:
       return {

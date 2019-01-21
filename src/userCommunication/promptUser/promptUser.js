@@ -9,6 +9,8 @@ const getNPlayers = () => {
     .catch(err => console.log(err));
 };
 
+const getBets = n => {};
+
 module.exports = {
   getNPlayers
 };
