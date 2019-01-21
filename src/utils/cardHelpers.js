@@ -1,10 +1,9 @@
 const Chance = require("chance");
 const chance = new Chance();
-const CARDS = require("./cards");
-const faceCardsArr = ["J", "Q", "K"];
+const { CARDS, FACE_CARDS } = require("./cards");
 
 /*
-A function to get 2 random cards for blaclkjack hand
+A function to get 2 random cards for blackjack hand
 args: none
 returns: array of cards
 */
@@ -15,7 +14,7 @@ const getInitialHand = () => {
   return initialCards;
 };
 
-manipulateHandsForStateTree = hands => {
+const manipulateHandsForStateTree = hands => {
   const newHands = [];
   hands.forEach(hand => {
     numericalCount = getInitialHandNumericalVal(hand);
@@ -28,16 +27,21 @@ manipulateHandsForStateTree = hands => {
   return newHands;
 };
 
-getInitialHandNumericalVal = cards => {
+const initialCardNumericalConverter = card => {
+  if (typeof card === "number") {
+    return card;
+  } else if (FACE_CARDS.includes(card)) {
+    return 10;
+  } else if (card === "A") {
+    return card;
+  }
+};
+
+// @TODO: seperate lines 33-41 into own function
+const getInitialHandNumericalVal = cards => {
   let cardValArr = [];
   cards.forEach(card => {
-    if (typeof card === "number") {
-      cardValArr.push(card);
-    } else if (faceCardsArr.includes(card)) {
-      cardValArr.push(10);
-    } else if (card === "A") {
-      cardValArr.push(card);
-    }
+    cardValArr.push(initialCardNumericalConverter(card));
   });
   if (cardValArr.includes("A") && cardValArr.includes(10)) {
     return 21;
@@ -50,5 +54,6 @@ getInitialHandNumericalVal = cards => {
 module.exports = {
   getInitialHand,
   manipulateHandsForStateTree,
-  getInitialHandNumericalVal
+  getInitialHandNumericalVal,
+  initialCardNumericalConverter
 };
