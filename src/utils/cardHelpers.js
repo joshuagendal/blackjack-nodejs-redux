@@ -37,16 +37,21 @@ const initialCardNumericalConverter = card => {
   }
 };
 
+const initialAceValidation = cardValArr => {
+  if (cardValArr.includes("A") && cardValArr.includes(10)) {
+    return 21;
+  }
+  return undefined;
+};
+
 // @TODO: seperate lines 33-41 into own function
 const getInitialHandNumericalVal = cards => {
   let cardValArr = [];
   cards.forEach(card => {
     cardValArr.push(initialCardNumericalConverter(card));
   });
-  if (cardValArr.includes("A") && cardValArr.includes(10)) {
-    return 21;
-  } else if (cardValArr.includes("A") && cardValArr.includes(10) === false) {
-    return undefined;
+  if (cardValArr.includes("A")) {
+    initialAceValidation(cardValArr);
   }
   return cardValArr[0] + cardValArr[1];
 };
@@ -55,5 +60,6 @@ module.exports = {
   getInitialHand,
   manipulateHandsForStateTree,
   getInitialHandNumericalVal,
-  initialCardNumericalConverter
+  initialCardNumericalConverter,
+  initialAceValidation
 };

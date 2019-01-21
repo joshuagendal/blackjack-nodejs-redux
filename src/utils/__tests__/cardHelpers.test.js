@@ -30,4 +30,19 @@ describe("cardHelpers utility functions", () => {
       });
     });
   });
+  describe("#initialAveValidation", () => {
+    const { initialAceValidation } = cardHelpers;
+    describe("when fed an ace and a 10", () => {
+      it("returns 21", () => {
+        const result = initialAceValidation(["A", 10]);
+        expect(result).toBe(21);
+      });
+    });
+    describe("when fed an ace and a number that is not 10", () => {
+      it("returns undefined", () => {
+        const result = initialAceValidation(["A", 3]);
+        expect(result).toBeUndefined();
+      });
+    });
+  });
 });
