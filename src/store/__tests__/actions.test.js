@@ -13,12 +13,19 @@ describe("redux actions", () => {
       expect(actions.endGame()).toEqual(expectedAction);
     });
   });
-  describe("#addUser", () => {
+  describe("#setNPlayers", () => {
+    const exPlayersArray = [
+      { chips: 100 },
+      { chips: 100 },
+      { chips: 100 },
+      { chips: 100 }
+    ];
     it("returns action to set n players", () => {
       const expectedAction = {
         type: SET_N_PLAYERS,
         payload: {
-          nPlayers: 4
+          nPlayers: 4,
+          players: exPlayersArray
         }
       };
       expect(actions.setNPlayers(4)).toEqual(expectedAction);

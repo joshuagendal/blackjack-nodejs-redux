@@ -10,7 +10,7 @@ const endGame = () => ({
 });
 
 /*
-This action sets the amount of players, and initializes the sate tree players array with
+This action sets the amount of players, and initializes the state tree players array with
 n objects, all with 100 chips each
 */
 const setNPlayers = n => {

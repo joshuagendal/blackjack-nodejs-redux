@@ -27,6 +27,10 @@ class Game {
       .catch(err => console.log(err));
   }
 
+  // getBetAmount() {
+  // This will call a promptly function to get each player's bet
+  // }
+
   dealPlayers(n) {
     let i;
     let hands = [];

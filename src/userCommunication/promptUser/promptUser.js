@@ -9,8 +9,23 @@ const getNPlayers = () => {
     .catch(err => console.log(err));
 };
 
-const getBets = n => {};
+const getNPlayerBets = async n => {
+  // This bets object will hold n k/v pairs: playerIndex: bet
+  let bets = {};
+  let i;
+  for (i = 0; i < n; i++) {
+    try {
+      const bet = await promptly.prompt(`Player ${i + 1}, what is your bet?`);
+      bets[i] = bet;
+    } catch (error) {
+      console.error(`error getting player ${i + 1}'s bet... \n\n`);
+      // throw new Error("Issue in getNPlayerBets function");
+    }
+  }
+  return bets;
+};
 
 module.exports = {
-  getNPlayers
+  getNPlayers,
+  getNPlayerBets
 };
