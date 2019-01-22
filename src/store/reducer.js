@@ -1,12 +1,16 @@
-const { END_GAME, SET_N_PLAYERS, SET_HANDS } = require("./constants");
+const {
+  END_GAME,
+  SET_N_PLAYERS,
+  SET_HANDS,
+  SET_N_PLAYERS_CHIPS
+} = require("./constants");
 
 const initialState = {
   gameOver: false,
-  nPlayers: null,
-  hands: null
+  nPlayers: null
 };
 
-const reducer = (state = initialState, action) => {
+const gameReducer = (state = initialState, action) => {
   switch (action.type) {
     case END_GAME:
       return {
@@ -16,8 +20,7 @@ const reducer = (state = initialState, action) => {
     case SET_N_PLAYERS:
       return {
         ...state,
-        nPlayers: action.payload.nPlayers,
-        players: action.payload.players
+        nPlayers: action.payload.nPlayers
       };
     case SET_HANDS:
       return {
@@ -29,6 +32,22 @@ const reducer = (state = initialState, action) => {
   }
 };
 
+const playersChipsInitialState = {
+  players: null
+};
+
+const chipsReducer = (state = playersChipsInitialState, { type, payload }) => {
+  switch (type) {
+    case SET_N_PLAYERS_CHIPS:
+      return {
+        players: payload.players
+      };
+    default:
+      return state;
+  }
+};
+
 module.exports = {
-  reducer
+  gameReducer,
+  chipsReducer
 };

@@ -1,9 +1,11 @@
 const END_GAME = "END_GAME";
 const SET_N_PLAYERS = "SET_N_PLAYERS";
 const SET_HANDS = "SET_HANDS";
+const SET_N_PLAYERS_CHIPS = "SET_N_PLAYERS_CHIPS";
 
 module.exports = {
   END_GAME,
   SET_N_PLAYERS,
-  SET_HANDS
+  SET_HANDS,
+  SET_N_PLAYERS_CHIPS
 };

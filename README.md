@@ -22,7 +22,7 @@ I am writing this blackjack app for two reasons:
 
 2. To explore the javascript programming language more deeply, using classes when appropriate.
 
-\*\*NOTE: I am using promises rather than async/await to more directly work with the promise API. I undderstand that async/await makes code cleaner, but a fantastic foundation of how promises work leads to proper use of async/await.
+I am using a mixture of promises and async/await because I want to get work with the prommise API directly at times to get my hands a little dirtier with it.
 
 TOOLS USED
 redux for app state management.

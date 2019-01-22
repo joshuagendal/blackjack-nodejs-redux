@@ -3,6 +3,7 @@ const setNPlayersWChips = n => {
   let i;
   for (i = 0; i < n; i++) {
     players.push({
+      player: i + 1,
       chips: 100
     });
   }

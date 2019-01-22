@@ -1,4 +1,9 @@
-const { END_GAME, SET_N_PLAYERS, SET_HANDS } = require("./constants");
+const {
+  END_GAME,
+  SET_N_PLAYERS,
+  SET_HANDS,
+  SET_N_PLAYERS_CHIPS
+} = require("./constants");
 const { manipulateHandsForStateTree } = require("../utils/cardHelpers");
 const { setNPlayersWChips } = require("../utils/miscellaneousHelpers");
 
@@ -13,16 +18,12 @@ const endGame = () => ({
 This action sets the amount of players, and initializes the state tree players array with
 n objects, all with 100 chips each
 */
-const setNPlayers = n => {
-  const players = setNPlayersWChips(n);
-  return {
-    type: SET_N_PLAYERS,
-    payload: {
-      nPlayers: n,
-      players
-    }
-  };
-};
+const setNPlayers = n => ({
+  type: SET_N_PLAYERS,
+  payload: {
+    nPlayers: n
+  }
+});
 
 const setHands = hands => {
   const handsRedux = manipulateHandsForStateTree(hands);
@@ -34,8 +35,19 @@ const setHands = hands => {
   };
 };
 
+const setPlayersChips = n => {
+  const players = setNPlayersWChips(n);
+  return {
+    type: SET_N_PLAYERS_CHIPS,
+    payload: {
+      players
+    }
+  };
+};
+
 module.exports = {
   endGame,
   setNPlayers,
-  setHands
+  setHands,
+  setPlayersChips
 };
