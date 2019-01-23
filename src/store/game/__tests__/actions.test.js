@@ -6,7 +6,7 @@ const chance = new Chance();
 describe("redux actions for game part of state tree", () => {
   describe("#endGame", () => {
     const { endGame } = actions;
-    it.only("returns action to end game", () => {
+    it("returns action to end game", () => {
       const expectedAction = {
         type: END_GAME,
         payload: {
@@ -20,7 +20,7 @@ describe("redux actions for game part of state tree", () => {
   describe("#setNPlayers", () => {
     const { setNPlayers } = actions;
     const randIntNPlayers = chance.integer({ min: 1, max: 8 });
-    it.only("returns action to set n players", () => {
+    it("returns action to set n players", () => {
       const expectedAction = {
         type: SET_N_PLAYERS,
         payload: {
