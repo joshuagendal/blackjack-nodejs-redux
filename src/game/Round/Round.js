@@ -10,20 +10,22 @@ class Round extends Game {
   }
 
   beginRound() {
-    this.getPlayerBets()
-      .then(res => console.log("begin Round: ", res))
+    this.getPlayerBets(this.nPlayers)
+      .then(bets => {
+        console.log("begin Round: ", bets);
+      })
       .catch(err => console.log(err));
   }
 
   /*
   A function to run the promptly function to get player bets, set this result to class variable playerBets
+  ... the chip value for each round of bets will be stored as a local construct variable. At the end of each round,
+  redux actions will be dispatched to the chips reducer to add or subtract the amount of the bet
   */
-  getPlayerBets() {
-    const n = this.nPlayers;
+  getPlayerBets(n) {
     return getNPlayerBets(n)
       .then(bets => {
         this.currentBets = bets;
-        console.log("GPB: ", bets);
         return bets;
       })
       .catch(err => console.log(err));

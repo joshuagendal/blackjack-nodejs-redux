@@ -19,7 +19,6 @@ const getNPlayerBets = async n => {
       bets[i] = bet;
     } catch (error) {
       console.error(`error getting player ${i + 1}'s bet... \n\n`);
-      // throw new Error("Issue in getNPlayerBets function");
     }
   }
   return bets;

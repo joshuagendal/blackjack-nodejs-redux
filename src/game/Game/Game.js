@@ -1,24 +1,17 @@
 const { print } = require("../../userCommunication/print/print");
 const {
-  getNPlayers,
-  getNPlayerBets
+  getNPlayers
 } = require("../../userCommunication/promptUser/promptUser");
 const { store } = require("../../store/index");
-const {
-  setNPlayers,
-  setHands,
-  setPlayersChips
-} = require("../../store/actions");
-const { getInitialHand } = require("../../utils/cardHelpers");
-const sleep = require("sleep");
+const { setNPlayers } = require("../../store/game/actions");
+const { setPlayersChips } = require("../../store/chips/actions");
 
 /*
 The class that will run the game via functions to start game, deal, remove busted hands from game, etc...
 */
 class Game {
-  constructor(nPlayers, currentBets) {
+  constructor(nPlayers) {
     this.nPlayers = nPlayers;
-    this.currentBets = currentBets;
   }
 
   /*

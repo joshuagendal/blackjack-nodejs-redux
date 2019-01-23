@@ -1,10 +1,4 @@
-const {
-  END_GAME,
-  SET_N_PLAYERS,
-  SET_HANDS,
-  SET_N_PLAYERS_CHIPS
-} = require("./constants");
-
+const { END_GAME, SET_N_PLAYERS } = require("./constants");
 const initialState = {
   gameOver: false,
   nPlayers: null
@@ -28,6 +22,5 @@ const gameReducer = (state = initialState, action) => {
 };
 
 module.exports = {
-  gameReducer,
-  chipsReducer
+  gameReducer
 };
