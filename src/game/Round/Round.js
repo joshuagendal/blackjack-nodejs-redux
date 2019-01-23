@@ -9,6 +9,12 @@ class Round extends Game {
     this.currentBets = currentBets;
   }
 
+  beginRound() {
+    this.getPlayerBets()
+      .then(res => console.log("begin Round: ", res))
+      .catch(err => console.log(err));
+  }
+
   /*
   A function to run the promptly function to get player bets, set this result to class variable playerBets
   */
@@ -17,6 +23,7 @@ class Round extends Game {
     return getNPlayerBets(n)
       .then(bets => {
         this.currentBets = bets;
+        console.log("GPB: ", bets);
         return bets;
       })
       .catch(err => console.log(err));
