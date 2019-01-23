@@ -1,3 +1,5 @@
+const { SET_N_PLAYERS_CHIPS } = require("./constants");
+
 const initialState = {
   players: null
 };
