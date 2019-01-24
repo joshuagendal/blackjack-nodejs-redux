@@ -1,7 +1,12 @@
+const sleep = require("sleep");
 const Game = require("../Game/Game");
 const {
   getNPlayerBets
 } = require("../../userCommunication/promptUser/promptUser");
+const { print } = require("../../userCommunication/print/print");
+const { getRandomCard } = require("../../utils/cardHelpers");
+const { store } = require("../../store");
+const { setInitialHand } = require("../../store/hand/actions");
 
 class Round extends Game {
   constructor(nPlayers, currentBets) {
@@ -12,7 +17,7 @@ class Round extends Game {
   beginRound() {
     this.getPlayerBets(this.nPlayers)
       .then(bets => {
-        console.log("begin Round: ", bets);
+        this.dealPlayers();
       })
       .catch(err => console.log(err));
   }
@@ -31,18 +36,35 @@ class Round extends Game {
       .catch(err => console.log(err));
   }
 
-  dealPlayers(n) {
+  dealPlayers() {
+    const nPlayers = this.nPlayers;
+    const hands = [];
     let i;
-    let hands = [];
-    for (i = 0; i < n; i++) {
-      const initialHand = getInitialHand();
-      hands.push(initialHand);
-      print(
-        `Player ${i + 1}'s cards: \n\n${initialHand[0]}  ${initialHand[1]}`
-      );
-      sleep.sleep(2);
+    for (i = 0; i < nPlayers; i++) {
+      const playerHand = this.dealSinglePlayer(i);
+      hands.push(playerHand);
     }
-    return store.dispatch(setHands(hands));
+    return store.dispatch(setInitialHand(hands));
+  }
+
+  dealSinglePlayer(player) {
+    const hand = [];
+    const playerNum = player + 1;
+
+    print(`Player ${playerNum}:\n\n`);
+    sleep.msleep(1250);
+
+    const firstCard = getRandomCard();
+    hand.push(firstCard);
+    print(`${firstCard}`);
+    sleep.msleep(1250);
+
+    const secondCard = getRandomCard();
+    hand.push(secondCard);
+    print(`${firstCard}   ${secondCard}\n\n`);
+    sleep.msleep(1250);
+
+    return hand;
   }
 }
 

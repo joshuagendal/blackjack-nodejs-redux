@@ -4,7 +4,7 @@ const initialState = {
   players: null
 };
 
-const chipsReducer = (state = initialState, { type, payload }) => {
+const playersReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case SET_N_PLAYERS_CHIPS:
       return {
@@ -16,5 +16,5 @@ const chipsReducer = (state = initialState, { type, payload }) => {
 };
 
 module.exports = {
-  chipsReducer
+  playersReducer
 };

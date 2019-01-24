@@ -14,6 +14,8 @@ const getInitialHand = () => {
   return initialCards;
 };
 
+const getRandomCard = () => CARDS[chance.integer({ min: 0, max: 12 })];
+
 const manipulateHandsForStateTree = hands => {
   const newHands = [];
   hands.forEach(hand => {
@@ -61,5 +63,6 @@ module.exports = {
   manipulateHandsForStateTree,
   getInitialHandNumericalVal,
   initialCardNumericalConverter,
-  initialAceValidation
+  initialAceValidation,
+  getRandomCard
 };
