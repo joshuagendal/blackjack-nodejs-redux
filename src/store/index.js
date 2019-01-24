@@ -3,10 +3,12 @@ const createCLILogger = require("redux-cli-logger").default;
 // const reducers = require("./reducer");
 const { playersReducer } = require("./chips/reducer");
 const { gameReducer } = require("./game/reducer");
+const { handsReducer } = require("./hand/reducer");
 
 const reducers = {
   playerss: playersReducer,
-  game: gameReducer
+  game: gameReducer,
+  hands: handsReducer
 };
 
 const rootReducer = combineReducers(reducers);

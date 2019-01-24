@@ -52,17 +52,17 @@ class Round extends Game {
     const playerNum = player + 1;
 
     print(`Player ${playerNum}:\n\n`);
-    sleep.msleep(1250);
+    sleep.msleep(750);
 
     const firstCard = getRandomCard();
     hand.push(firstCard);
     print(`${firstCard}`);
-    sleep.msleep(1250);
+    sleep.msleep(750);
 
     const secondCard = getRandomCard();
     hand.push(secondCard);
     print(`${firstCard}   ${secondCard}\n\n`);
-    sleep.msleep(1250);
+    sleep.msleep(750);
 
     return hand;
   }

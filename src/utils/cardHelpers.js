@@ -18,12 +18,12 @@ const getRandomCard = () => CARDS[chance.integer({ min: 0, max: 12 })];
 
 const manipulateHandsForStateTree = hands => {
   const newHands = [];
-  hands.forEach(hand => {
+  hands.forEach((hand, index) => {
     numericalCount = getInitialHandNumericalVal(hand);
     newHands.push({
+      player: index + 1,
       cards: hand,
-      numericalCount,
-      chips: 100
+      numericalCount
     });
   });
   return newHands;
